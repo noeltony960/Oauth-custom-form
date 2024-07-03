@@ -1,0 +1,37 @@
+<html lang="en" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Custom OAuth Login</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f0f0f0; }
+      form { max-width: 300px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+      input, button { display: block; width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; }
+      button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+      .error { color: red; }
+    </style>
+  </head>
+  <body>
+    <form method="POST" enctype="application/x-www-form-urlencoded" action="authorize">
+      <h1>Please sign in</h1>
+      <p>Username</p>
+      <p style="text-indent: 0em;"><input type="text" name="username" required="required" /></p>
+      <p>Password</p>
+      <p style="text-indent: 0em;"><input type="password" name="password" required="required" /></p>
+      <EI-INJECT-HIDDEN-INPUT-FIELDS/>
+      <p style="text-indent: 2em;">
+        <button id="login_button" type="submit" name="login" value="true">Log in</button>
+      </p>
+
+      <EI-LOGINFIRSTTIME>
+        <p>If you have forgotten your user name or password, contact your system administrator.</p>
+      </EI-LOGINFIRSTTIME>
+
+      <EI-LOGINFAILED>
+        <p style="color: red">At least one of your entries does not match our records. 
+          If you have forgotten your user name or password, contact your system administrator.</p>
+      </EI-LOGINFAILED>
+
+      <EI-INTERNAL-CUSTOM-FORM-ERROR/>
+    </form>
+  </body>
+</html>
